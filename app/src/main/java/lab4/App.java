@@ -9,9 +9,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        String inputFilePath = "C:\\Users\\STUDENT\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\" + "panda" + ".bmp";
-        String outputFilePath = "C:\\Users\\STUDENT\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\" + "test1" + ".bmp";
-        String transform = "testV.bmp";
+        for (String arg : args
+        ) {
+            System.out.println(arg);
+
+        }
+        String inputFilePath = "C:\\Users\\STUDENT\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\" + args[0] + ".bmp";
+        String outputFilePath = "C:\\Users\\STUDENT\\401Java\\bitmap-transformer\\app\\src\\main\\resources\\" + args[1] + ".bmp";
+        String transform = args[2].toLowerCase();
+//       String transform = "testV.bmp";
         Bitmap bitmap = null;
 
         // Try to read in file from CLI argument
@@ -24,11 +30,20 @@ public class App {
 
         // Perform transform based on CLI argument
         switch (transform) {
-            case "blackgreen": Bitmap.reverseBlackAndGreen(); break;
-            case "random": Bitmap.random(); break;
-            case "stretchvertically": Bitmap.stretchVertically(); break;
-            case "stretchvorizontally": Bitmap.stretchHorizontally(); break;
-            default : System.out.println("Invalid Transform. Choices are: 'blackwhite', 'random', 'stretchvertically','stretchvorizontally'.");
+            case "blackgreen":
+                Bitmap.reverseBlackAndGreen();
+                break;
+            case "random":
+                Bitmap.random();
+                break;
+            case "stretchvertically":
+                Bitmap.stretchVertically();
+                break;
+            case "stretchvorizontally":
+                Bitmap.stretchHorizontally();
+                break;
+            default:
+                System.out.println("Invalid Transform. Choices are: 'blackwhite', 'random', 'stretchvertically','stretchvorizontally'.");
         }
 
         // Try to save in file

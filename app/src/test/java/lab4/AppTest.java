@@ -7,6 +7,7 @@ package lab4;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.Assert.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -15,7 +16,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.*;
 
 public class AppTest {
 
@@ -37,10 +37,11 @@ public class AppTest {
 //        Color white = new Color(255, 255, 255);
         Color green = new Color(46, 255, 0);
 
-        assertEquals("This test should return a green color",green.getRGB(), newImageData.getRGB(0, 0));
-        assertEquals("This test should return a black color",black.getRGB(), newImageData.getRGB(0, 3));
+        assertEquals(green.getRGB(), newImageData.getRGB(0, 0),"This test should return a green color");
+        assertEquals(black.getRGB(), newImageData.getRGB(0, 3),"This test should return a black color");
 
     }
+
 
 
     @Test
@@ -57,7 +58,7 @@ public class AppTest {
 
         BufferedImage newImageData = ImageIO.read(newBitMapInPath.toFile());
 
-        assertEquals("This test should return a height of 8",8, newImageData.getHeight());
+        assertEquals(8, newImageData.getHeight(),"This test should return a height of 8");
 
     }
 
@@ -75,30 +76,8 @@ public class AppTest {
 
         BufferedImage newImageData = ImageIO.read(newBitMapInPath.toFile());
 
-        assertEquals("This test should return a width of 8",8, newImageData.getWidth());
+        assertEquals(8, newImageData.getWidth(),"This test should return a width of 8");
 
     }
 
-//    @Test
-//    public void testRandom() throws IOException {
-//        BufferedImage dummyImage = Bitmap.dummyBitMap();
-//
-//        String outputFilePath = "C:\\Users\\STUDENT\\401\\bitmap-transformer\\app\\src\\test\\resources\\testRandom.bmp";
-//        Bitmap.setImageData(dummyImage, outputFilePath);
-//        Bitmap.random();
-//        Bitmap.save();
-//
-//        Path newBitMapInPath = Paths.get(outputFilePath);
-//
-//        BufferedImage newImageData = ImageIO.read(newBitMapInPath.toFile());
-//
-//        Color black = new Color(0, 0, 0);
-//        Color white = new Color(255, 255, 255);
-//
-//        int halfW = dummyImage.getRGB(0, 3)/2;
-//        int halfB = dummyImage.getRGB(0,0)/2;
-//        assertEquals("This test should return a getRGB() /2 color",halfB, (newImageData.getRGB(0, 0)/2));
-//        assertEquals("This test should return a getRGB() /2 color",halfW, (newImageData.getRGB(0, 3)/2));
-//
-//    }
 }
